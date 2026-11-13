@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'home_page.dart';
+import 'quran_page.dart';
 import 'visual_style.dart';
 
 void main() => runApp(const MyApp());
@@ -36,12 +37,14 @@ class WorshipShell extends StatefulWidget {
 }
 
 class _WorshipShellState extends State<WorshipShell> {
+  int _selected = 0;
+
   void openDestination(int index) {
-    if (index == 0) return;
-    showUnavailable(
-      context,
-      ['Beranda', 'Al-Qur’an', 'Kiblat', 'Lainnya'][index],
-    );
+    if (index >= 2) {
+      showUnavailable(context, index == 2 ? 'Kiblat' : 'Lainnya');
+      return;
+    }
+    setState(() => _selected = index);
   }
 
   @override
@@ -54,10 +57,17 @@ class _WorshipShellState extends State<WorshipShell> {
           child: Scaffold(
             body: SafeArea(
               bottom: false,
-              child: HomePage(onNavigate: openDestination),
+              child: IndexedStack(
+                index: _selected,
+                children: [
+                  HomePage(onNavigate: openDestination),
+                  const QuranPage(),
+                ],
+              ),
             ),
             bottomNavigationBar: NavigationBar(
               height: 66,
+              selectedIndex: _selected,
               backgroundColor: AppColors.card,
               indicatorColor: AppColors.mint,
               onDestinationSelected: openDestination,

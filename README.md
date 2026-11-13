@@ -1,6 +1,6 @@
 # Final Project — Flutter
 
-Kerangka aplikasi Flutter untuk tugas final tim. Aplikasi acuan yang dipilih adalah **Muslim Pro**. Proyek ini masih pada tahap riset dan persiapan; tampilan dan fitur Muslim Pro belum dibuat.
+Proyek Flutter untuk tugas final tim dengan **Muslim Pro** sebagai aplikasi acuan. Branch `zaim` memuat prototipe Beranda, Al-Qur'an, dan Kiblat.
 
 ## Ketentuan tugas
 
@@ -15,7 +15,7 @@ Kerangka aplikasi Flutter untuk tugas final tim. Aplikasi acuan yang dipilih ada
 2. Di folder proyek, jalankan `flutter pub get`.
 3. Jalankan `flutter run` dan pilih perangkat Android atau browser.
 
-Kode utama berada di `lib/main.dart`. Saat ini aplikasi masih berupa contoh bawaan Flutter.
+Kode utama berada di `lib/main.dart`. Beranda menggunakan jadwal contoh. Halaman Al-Qur'an menampilkan empat surah yang bisa dicari dan dibaca. Halaman Kiblat menghitung perkiraan arah dari kota yang dipilih secara manual.
 
 ## Ide aplikasi
 

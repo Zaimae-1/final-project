@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'home_page.dart';
 import 'quran_page.dart';
+import 'qibla_page.dart';
 import 'visual_style.dart';
 
 void main() => runApp(const MyApp());
@@ -40,8 +41,8 @@ class _WorshipShellState extends State<WorshipShell> {
   int _selected = 0;
 
   void openDestination(int index) {
-    if (index >= 2) {
-      showUnavailable(context, index == 2 ? 'Kiblat' : 'Lainnya');
+    if (index == 3) {
+      showUnavailable(context, 'Lainnya');
       return;
     }
     setState(() => _selected = index);
@@ -62,6 +63,7 @@ class _WorshipShellState extends State<WorshipShell> {
                 children: [
                   HomePage(onNavigate: openDestination),
                   const QuranPage(),
+                  const QiblaPage(),
                 ],
               ),
             ),
